@@ -5,6 +5,7 @@ services:
       - ..:/workspace
     command: sleep infinity
     networks:
+      - external-network
       - internal-network
     depends_on:
       - db
@@ -29,6 +30,8 @@ volumes:
   postgres_data:
 
 networks:
+  external-network:
+    driver: bridge
   internal-network:
     driver: bridge
     internal: true
